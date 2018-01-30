@@ -1,5 +1,5 @@
 /* =========================================================
- * bootstrap-treeview.js v1.2.1
+ * bootstrap-treeview.js v1.2.1 
  * =========================================================
  * Copyright 2013 Jonathan Miles
  * Project URL : http://www.jondmiles.com/bootstrap-treeview
