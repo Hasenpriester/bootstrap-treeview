@@ -142,7 +142,12 @@
 
 			// Search methods
 			search: $.proxy(this.search, this),
-			clearSearch: $.proxy(this.clearSearch, this)
+			clearSearch: $.proxy(this.clearSearch, this),
+
+			// Extended
+			getNodes: $.proxy(this.getNodes, this),
+			findNode: $.proxy(this.findNode, this),
+			findNodeID: $.proxy(this.findNodeID, this)
 		};
 	};
 
@@ -1206,6 +1211,30 @@
 			}
 		}
 	};
+
+	// Extended
+	Tree.prototype.getNodes = function () {
+		return this.nodes;
+	};
+
+	Tree.prototype.findNode = function (property, value) {
+		var wanted = false;
+		$.each(this.nodes, function(it, node)
+		{
+			if(node.hasOwnProperty(property) && String(node[property]) == String(value))
+			{
+				wanted = node;
+				return false;
+			}
+		});
+		return wanted;
+	};
+
+	Tree.prototype.findNodeID = function (property, value) {
+		var wanted = this.findNode(property, value);
+		return wanted !== false ? wanted.nodeId : false;
+	};
+
 
 	var logError = function (message) {
 		if (window.console) {
